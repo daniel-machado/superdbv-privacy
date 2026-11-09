@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termos de Uso — SuperDBV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --green: #1a6b3c;
+      --green-light: #e8f4ee;
+      --yellow: #f5c518;
+      --yellow-pale: #fffbea;
+      --text: #1c1c1c;
+      --muted: #5a5a5a;
+      --border: #d8d8d8;
+      --surface: #f9f9f7;
+      --white: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--black);
+      color: var(--white);
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      border-bottom: 3px solid var(--yellow);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      width: 36px;
+      height: 36px;
+      background: var(--yellow);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--black);
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .logo-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+      color: var(--white);
+    }
+
+    .logo-text span {
+      color: var(--yellow);
+    }
+
+    header .badge-lg {
+      font-size: 0.7rem;
+      background: var(--green);
+      color: var(--white);
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 120%, #1a6b3c44 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.25s;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--yellow);
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.4s;
+    }
+
+    .hero-meta-item {
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    .hero-meta-item strong {
+      display: block;
+      color: var(--white);
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ── TOC ── */
+    .toc-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--green);
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      margin: 3rem 0;
+    }
+
+    .toc-wrap h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      color: var(--green);
+    }
+
+    .toc {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.35rem 2rem;
+    }
+
+    @media (max-width: 540px) {
+      .toc { grid-template-columns: 1fr; }
+    }
+
+    .toc a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 400;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      transition: color 0.15s;
+    }
+
+    .toc a:hover { color: var(--green); }
+
+    .toc a .num {
+      font-size: 0.72rem;
+      color: var(--yellow);
+      font-weight: 500;
+      background: var(--black);
+      padding: 1px 5px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--yellow);
+      line-height: 1;
+      flex-shrink: 0;
+      opacity: 0.35;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.55rem;
+      line-height: 1.2;
+      color: var(--black);
+    }
+
+    h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--green);
+      margin: 1.75rem 0 0.6rem;
+      padding-left: 0.75rem;
+      border-left: 3px solid var(--green);
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul, ol {
+      padding-left: 1.4rem;
+      color: var(--muted);
+      margin-bottom: 0.85rem;
+    }
+
+    li { margin-bottom: 0.4rem; }
+
+    strong { color: var(--text); font-weight: 500; }
+
+    a { color: var(--green); }
+
+    /* ── TABLES ── */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      min-width: 480px;
+    }
+
+    thead tr {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    thead th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:nth-child(even) { background: var(--surface); }
+
+    tbody td {
+      padding: 0.7rem 1rem;
+      color: var(--muted);
+      vertical-align: top;
+    }
+
+    tbody td:first-child { color: var(--text); font-weight: 400; }
+
+    /* ── CALLOUT BOXES ── */
+    .callout {
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .callout-green {
+      background: var(--green-light);
+      border: 1px solid #b2d8c2;
+    }
+
+    .callout-yellow {
+      background: var(--yellow-pale);
+      border: 1px solid #e8d47a;
+    }
+
+    .callout-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .callout p { margin: 0; font-size: 0.9rem; }
+    .callout strong { display: block; margin-bottom: 0.3rem; font-size: 0.95rem; }
+
+    /* ── RIGHTS GRID ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+
+    .right-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.9rem 1rem;
+      font-size: 0.875rem;
+    }
+
+    .right-item .right-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--yellow);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .right-item strong { display: block; margin-bottom: 0.2rem; font-size: 0.9rem; }
+    .right-item p { font-size: 0.82rem; margin: 0; }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: var(--black);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 1.5rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-card h3 {
+      border: none;
+      padding: 0;
+      color: var(--yellow);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin: 0 0 0.5rem;
+    }
+
+    .contact-card p { color: #ccc; margin: 0; font-size: 0.9rem; }
+    .contact-card a { color: var(--yellow); }
+
+    .contact-btn {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      font-weight: 500;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      transition: opacity 0.15s;
+    }
+
+    .contact-btn:hover { opacity: 0.85; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer strong { color: var(--text); }
+
+    /* ── PROGRESS BAR ── */
+    #progress {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      height: 3px;
+      background: var(--yellow);
+      z-index: 200;
+      transition: width 0.1s linear;
+      width: 0%;
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header>
+  <div class="logo">
+    <div class="logo-badge">S</div>
+    <span class="logo-text">Super<span>DBV</span></span>
+  </div>
+  <a class="badge-lg" href="index.html">Política de Privacidade</a>
+</header>
+
+<div class="hero">
+  <p class="hero-eyebrow">Documento Legal</p>
+  <h1>Termos de <em>Uso</em></h1>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <strong>Versão</strong>
+      1.0
+    </div>
+    <div class="hero-meta-item">
+      <strong>Vigência</strong>
+      10 de novembro de 2026
+    </div>
+    <div class="hero-meta-item">
+      <strong>Responsável</strong>
+      Daniel Machado Barbosa
+    </div>
+    <div class="hero-meta-item">
+      <strong>Contato</strong>
+      daniel7oficial@gmail.com
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <nav class="toc-wrap" aria-label="Índice">
+    <h2>Índice</h2>
+    <ol class="toc">
+      <li><a href="#s1"><span class="num">01</span> Aceitação</a></li>
+      <li><a href="#s2"><span class="num">02</span> O que é o SuperDBV</a></li>
+      <li><a href="#s3"><span class="num">03</span> Quem pode usar</a></li>
+      <li><a href="#s4"><span class="num">04</span> Sua conta</a></li>
+      <li><a href="#s5"><span class="num">05</span> Regras de conduta</a></li>
+      <li><a href="#s6"><span class="num">06</span> Seu conteúdo</a></li>
+      <li><a href="#s7"><span class="num">07</span> Denúncias e moderação</a></li>
+      <li><a href="#s8"><span class="num">08</span> Luzeiritos, XP e loja</a></li>
+      <li><a href="#s9"><span class="num">09</span> Propriedade intelectual</a></li>
+      <li><a href="#s10"><span class="num">10</span> Disponibilidade</a></li>
+      <li><a href="#s11"><span class="num">11</span> Suspensão e encerramento</a></li>
+      <li><a href="#s12"><span class="num">12</span> Alterações</a></li>
+      <li><a href="#s13"><span class="num">13</span> Lei aplicável</a></li>
+      <li><a href="#s14"><span class="num">14</span> Contato</a></li>
+    </ol>
+  </nav>
+
+  <section id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Aceitação</h2>
+    </div>
+    <p>Ao criar uma conta ou usar o <strong>SuperDBV</strong>, você concorda com estes Termos de Uso e com a <a href="index.html">Política de Privacidade</a>. Usuários de 10 a 15 anos só podem usar o aplicativo com o consentimento do responsável legal, que aceita estes Termos em nome deles.</p>
+  </section>
+
+  <section id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>O que é o SuperDBV</h2>
+    </div>
+    <p>O SuperDBV é uma plataforma de gestão e gamificação para Clubes de Desbravadores, operada por <strong>Daniel Machado Barbosa</strong>, pessoa física. Cada clube é conduzido por sua própria liderança, que aprova membros, atividades e conquistas.</p>
+  </section>
+
+  <section id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Quem pode usar</h2>
+    </div>
+    <ul>
+      <li>Pessoas a partir de 10 anos vinculadas a um clube;</li>
+      <li>Usuários de 10 a 15 anos precisam da confirmação do responsável legal e da aprovação da liderança do clube;</li>
+      <li>O responsável decide se o usuário de 10 a 15 anos pode usar os recursos sociais.</li>
+    </ul>
+  </section>
+
+  <section id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Sua conta</h2>
+    </div>
+    <ul>
+      <li>Informe dados verdadeiros, inclusive a data de nascimento;</li>
+      <li>Mantenha sua senha em segredo e não compartilhe sua conta;</li>
+      <li>Você pode excluir sua conta a qualquer momento em Configurações.</li>
+    </ul>
+  </section>
+
+  <section id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Regras de conduta</h2>
+    </div>
+    <div class="callout callout-yellow">
+      <span class="callout-icon">⚠️</span>
+      <div>
+        <strong>Tolerância zero</strong>
+        <p>O SuperDBV não tolera conteúdo abusivo nem usuários abusivos. A violação destas regras pode levar à remoção do conteúdo e ao bloqueio da conta.</p>
+      </div>
+    </div>
+    <p>É proibido publicar, enviar ou praticar:</p>
+    <ul>
+      <li>Conteúdo sexual, ou qualquer forma de exploração ou sexualização de crianças e adolescentes;</li>
+      <li>Assédio, bullying, ameaças, humilhação ou discurso de ódio;</li>
+      <li>Violência explícita, conteúdo perigoso ou incentivo a automutilação;</li>
+      <li>Pedidos de dados pessoais, de contato fora do aplicativo ou de encontros, especialmente com menores;</li>
+      <li>Dados pessoais, fotos ou vídeos de outras pessoas sem autorização;</li>
+      <li>Golpes, spam, falsa identidade ou fraude em pontos, rankings e moedas virtuais;</li>
+      <li>Conteúdo ilegal ou que viole direitos de terceiros.</li>
+    </ul>
+    <p>Se você souber de risco imediato a uma criança ou adolescente, procure também as autoridades, como o <strong>Disque 100</strong>.</p>
+  </section>
+
+  <section id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Seu conteúdo</h2>
+    </div>
+    <p>O que você publica continua sendo seu. Você autoriza o SuperDBV a armazenar e exibir esse conteúdo apenas para o funcionamento da plataforma, conforme a visibilidade escolhida. Essa autorização termina quando o conteúdo é excluído, ressalvados os prazos da Política de Privacidade. Você é responsável pelo que publica.</p>
+  </section>
+
+  <section id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Denúncias e moderação</h2>
+    </div>
+    <p>Denúncias podem ser enviadas para <a href="mailto:daniel7oficial@gmail.com">daniel7oficial@gmail.com</a>. As denúncias são analisadas em até <strong>24 horas</strong>. Conteúdos que violem estes Termos são removidos, e o responsável pode ter a conta bloqueada. Líderes do clube também podem remover conteúdos.</p>
+  </section>
+
+  <section id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Luzeiritos, XP e loja</h2>
+    </div>
+    <p>Luzeiritos e XP são recursos de gamificação sem valor monetário. Não podem ser convertidos em dinheiro, vendidos ou transferidos fora das regras do aplicativo. Saldos podem ser ajustados para corrigir erros ou fraudes. Itens físicos são retirados no clube, conforme a disponibilidade definida por ele.</p>
+  </section>
+
+  <section id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Propriedade intelectual</h2>
+    </div>
+    <p>A marca, o design e o software do SuperDBV pertencem ao seu operador ou a seus licenciantes. Não é permitido copiar, modificar ou explorar o aplicativo sem autorização. Conteúdos bíblicos e materiais de terceiros seguem as respectivas licenças.</p>
+  </section>
+
+  <section id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>Disponibilidade</h2>
+    </div>
+    <p>Trabalhamos para manter o aplicativo funcionando, mas ele pode passar por falhas, manutenções e mudanças. Funcionalidades podem ser alteradas ou encerradas. Isso não afasta os direitos previstos na legislação brasileira.</p>
+  </section>
+
+  <section id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2>Suspensão e encerramento</h2>
+    </div>
+    <p>Contas podem ser suspensas ou encerradas em caso de violação destes Termos, risco a outros usuários ou exigência legal. A liderança do clube também pode remover membros do clube.</p>
+  </section>
+
+  <section id="s12">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2>Alterações</h2>
+    </div>
+    <p>Estes Termos podem ser atualizados. Em caso de mudanças relevantes, avisaremos por notificação push, e-mail ou dentro do aplicativo. A data no topo indica a versão em vigor.</p>
+  </section>
+
+  <section id="s13">
+    <div class="section-header">
+      <span class="section-num">13</span>
+      <h2>Lei aplicável</h2>
+    </div>
+    <p>Estes Termos seguem as leis do Brasil. Fica eleito o foro do domicílio do consumidor.</p>
+  </section>
+
+  <section id="s14">
+    <div class="section-header">
+      <span class="section-num">14</span>
+      <h2>Contato</h2>
+    </div>
+    <div class="contact-card">
+      <div>
+        <h3>Responsável pelo SuperDBV</h3>
+        <p><strong style="color:#fff">Daniel Machado Barbosa</strong><br />
+        <a href="mailto:daniel7oficial@gmail.com">daniel7oficial@gmail.com</a></p>
+      </div>
+      <a href="mailto:daniel7oficial@gmail.com" class="contact-btn">Enviar e-mail</a>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer>
+  <p><strong>SuperDBV</strong> · <a href="index.html">Política de Privacidade</a></p>
+  <p>Termos de Uso · Versão 1.0 · 10 de novembro de 2026</p>
+</footer>
+<script>
+  const bar = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (window.scrollY / max * 100) + '%';
+  });
+</script>
+
+</body>
+</html>
